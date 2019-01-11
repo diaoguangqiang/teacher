@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>税率计算器</title>
+		<style>
+			main {
+				margin: 10% 20%;
+			}
+			.main-body {
+				margin: auto auto;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="main-body">
+				<table border="1">
+					<th colspan="3">税率计算器</th>
+					<tr>
+						<td>800 ≤ 税后 ≤ 3360 <br />
+						3360 &lt; 税后 ≤ 16800 <br />
+						16800 &lt; 税后 ≤ 40000 <br />
+						税后 > 40000 <br />
+						<td>
+								税后收入: <input type="text" id="fax_input" onkeypress="fax_compute(event)" onkeydown="fax_compute()">
+						</td>
+						<td>
+							税后 = 税前 - (税前-800) * 20% <br />
+							税后 = 税前 - (税前 * 80% * 20%) <br />
+							税后 = 税前 - (税前 * 80% * 30% - 2000) <br />
+							税后 = 税前 - (税前 * 80% * 40% - 7000) <br />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							税额 <input type="text" readonly="readonly" id = "taxes_output"/>
+						</td>
+					</tr>					
+					<tr>
+						<td colspan="3">
+							税前收入 <input type="text" readonly="readonly" id = "fax_output"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</main>
+		<script>
+			function fax_compute(e) { 
+				var event = e || window.event;
+				if (event.keyCode == 13) {
+					shui_hou = document.getElementById("fax_input").value.trim();
+					if (shui_hou.length == 0) {
+						return false;
+					}
+					shui_hou = parseInt(shui_hou);
+					shui_qian = 0;
+					shui_e = 0;
+					switch (true) {
+						case (800 < shui_hou && shui_hou <= 3360):				
+							shui_qian = (shui_hou - 160) / 0.8;
+							shui_e = (shui_qian - 800)*0.2;
+							break;
+						case (3360 < shui_hou && shui_hou <= 16800):				
+							shui_qian = shui_hou / 0.84;
+							shui_e = shui_qian*0.8*0.2;
+							break;
+						case (16800 < shui_hou && shui_hou <= 40000):				
+							shui_qian = (shui_hou - 2000) / 0.76;
+							shui_e = shui_qian*0.8*0.3 - 2000;
+							break;
+						case (shui_hou > 40000):							
+							shui_qian = (shui_hou - 7000) / 0.68;
+							shui_e = shui_qian*0.8*0.4 - 7000;
+							break;
+					}
+
+					document.getElementById("taxes_output").value = shui_e.toFixed(2);
+					document.getElementById("fax_output").value = shui_qian.toFixed(2);
+					
+				}
+			 }
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,1 @@
+[Fri Nov 30 15:59:21.882174 2018] [cgi:error] [pid 1579] [client 36.5.176.92:32352] AH02811: script not found or unable to stat: /opt/lampp/cgi-bin/user

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>信息管理与信息系统</title>
+    <!-- Bootstrap -->
+    <link href="__graduate__/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="__graduate__/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="__graduate__/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="__graduate__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="__graduate__/build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        {include file="../application/index/view/graduate/left.html" /}
+
+        {include file="../application/index/view/graduate/top.html" /}
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>信息管理与信息系统<small>(录取{$count}人)</small></h3>
+                    </div>
+
+                    <!--
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{$min}级<!---{$max}级 --><small>考研学生名单&nbsp;(排名不分先后)</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>年级</th>
+                                        <th>姓名</th>
+                                        <th>录取学校</th>
+                                        <th>点击量</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {volist name="data" id="value" key="k" mod="1"}
+                                    <tr>
+                                        <td>{$k}</td>
+                                        <td><a href='info?id={$value.student_no}'> <font color="#0000FF">{$value.grade}</font></td>
+                                        <td><a href='info?id={$value.student_no}'> <font color="#0000FF">{$value.student_name}</font></a></td>
+                                        <td><a href='info?id={$value.student_no}'><font color="#0000FF">{$value.NAME}</font></a></td>
+                                        <td>{$value.hits}</td>
+                                    </tr>
+                                    {/volist}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>211/985录取占比</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div id="echart_donut" style="height:350px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>录取人数趋势</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div id="echart_line" style="height:350px;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="__graduate__/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="__graduate__/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="__graduate__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="__graduate__/vendors/nprogress/nprogress.js"></script>
+<!-- ECharts -->
+<script src="__graduate__/vendors/echarts/dist/echarts.js"></script>
+<script src="__graduate__/vendors/echarts/map/js/world.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="__graduate__/build/js/xg_custom.js"></script>
+
+<div align="center">
+    <!--统计代码-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ba7054397ef399cc369ccab1835d2de0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275311623'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D1275311623%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

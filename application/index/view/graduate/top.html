@@ -1,0 +1,55 @@
+<!-- top navigation -->
+<div class="top_nav">
+    <div class="nav_menu">
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="__graduate__/img/img.jpg" alt="">山青院
+                        <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a href="/"><i class="fa fa-sign-out pull-right"></i> 退出</a></li>
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle"  aria-expanded="false">
+                        <img src="__graduate__/build/images/loading.gif" alt="">倒计时:<span id="t_d">00天</span><span id="t_h">00时</span><span id="t_m">00分</span><span id="t_s">00秒</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function getRTime(){
+        var EndTime= new Date('2019/12/22 00:00:00'); //截止时间
+        var NowTime = new Date();
+        var t =EndTime.getTime() - NowTime.getTime();
+        /*var d=Math.floor(t/1000/60/60/24);
+        t-=d*(1000*60*60*24);
+        var h=Math.floor(t/1000/60/60);
+        t-=h*60*60*1000;
+        var m=Math.floor(t/1000/60);
+        t-=m*60*1000;
+        var s=Math.floor(t/1000);*/
+
+        var d=Math.floor(t/1000/60/60/24);
+        var h=Math.floor(t/1000/60/60%24);
+        var m=Math.floor(t/1000/60%60);
+        var s=Math.floor(t/1000%60);
+
+        document.getElementById("t_d").innerHTML = d + "天";
+        document.getElementById("t_h").innerHTML = h + "时";
+        document.getElementById("t_m").innerHTML = m + "分";
+        document.getElementById("t_s").innerHTML = s + "秒";
+    }
+    setInterval(getRTime,1000);
+</script>
+<!-- /top navigation -->

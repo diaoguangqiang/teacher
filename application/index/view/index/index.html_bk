@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 编码 -->
+		<meta charset="UTF-8">
+	 
+		<!-- 头部放置的跳转代码-->
+		<!--<meta http-equiv="Refresh" content="60;url=http://222.194.77.225/">-->
+	 
+		<!-- 关键字 -->
+		<meta name="keywords" content="大学生 计算机 竞赛 IT">
+	 
+		<!-- 描述 -->
+		<meta name="description" content="IT学科竞赛">
+	 
+		<!-- IE浏览器指定文件兼容性模式 X-UA-Compatible -->
+		<meta http-equiv="X-UA-Compatible" content="IE=EnulateIE7"/>
+		
+		<!--默认href链接地址-->
+		<base href="http://222.194.77.225/" target="_blank">
+		 
+		<title>IT学科竞赛</title>
+	</head>
+
+	<body>
+
+		<div align="center">
+			<p>
+				<a href="ftp://192.168.197.159" target="_blank">
+					<font color="FF0000" size="5pt">&gt;&gt;&nbsp;课件资源库&nbsp;(校内网访问)</font></a>
+				<br>用户名： admin &nbsp;&nbsp;密码：   123456
+			</p>
+		</div>
+		
+		<br>
+		<div align="center" >		
+			<p>
+				<font color="000000" size="5pt">信息工程学科竞赛</font>
+			</p>
+			<table border="1" align="center" cellspacing="0" width="85%">
+				<tr align="center" height="30">
+					<th width="10%">月份</th>
+					<th width="30%">竞赛名称</th>
+					<th width="30%">报名网址</th>
+					<th width="20%">最高奖项</th>
+					<th width="10%">点击量</th>
+				</tr>
+				
+				{volist name="data" id="value"}
+					<tr align="center">
+						<td align="center">{$value.month}</td>
+						<td>{$value.name}</td>  
+						<!--
+							<td><a href="{$value.website}" target="_blank">{$value.show_site}</a></td>
+						-->
+						<td><a href="race_jump?id={$value.id}&site={$value.website}" target="_blank">{$value.show_site}</a></td>
+
+						<td>{$value.award}</td>
+						<td>{$value.hits}</td>
+					</tr>
+				{/volist}					
+							
+			</table>
+			
+			<br>
+			<div align="center">
+				<a href="https://yz.chsi.com.cn/" target="_blank">
+					<font color="FF0000" size="5pt">&gt;&gt;&nbsp;考研报名入口</font>
+				</a>
+				
+			</div>
+			
+			<br>
+			<div align="center">更多赛事, 可推荐至QQ:910727948</div>		
+			
+		</div>
+
+		<br>
+		<div align="center">
+			<!--统计代码-->
+			<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?ba7054397ef399cc369ccab1835d2de0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275311623'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D1275311623%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+		</div>
+
+		<br>
+		<div align="center">
+			<iframe width="640" height="640" src="https://cybermap.kaspersky.com/cn/widget/dynamic/dark" frameborder="0"/>
+		</div>
+
+	</body>
+</html>

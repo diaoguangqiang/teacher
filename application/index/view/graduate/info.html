@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$title}</title>
+    <!-- Bootstrap -->
+    <link href="__graduate__/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="__graduate__/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="__graduate__/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="__graduate__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="__graduate__/build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        {include file="../application/index/view/graduate/left.html" /}
+
+        {include file="../application/index/view/graduate/top.html" /}
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>详细信息 <small>.</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+
+                                <p>提示:可拖动下面数据向左滑动<code>.</code></p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped jambo_table bulk_action">
+                                        <thead>
+                                        <tr class="headings">
+                                            <th>
+                                                <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">年级 </th>
+                                            <th class="column-title">学号 </th>
+                                            <th class="column-title">姓名 </th>
+                                            <th class="column-title">录取学校 </th>
+                                            <th class="column-title">录取专业 </th>
+                                            <th class="column-title">211 </th>
+                                            <th class="column-title">985 </th>
+                                            <th class="column-title no-link last"><span class="nobr">点击量</span></th>
+                                            <th class="bulk-actions" colspan="8">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">选中 ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {volist name="data" id="value" key="k" mod="1"}
+                                            <tr class="even pointer">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="flat" name="table_records">
+                                                </td>
+                                                <td class=" ">{$value.grade}</td>
+                                                <td class=" ">{$value.student_no}</td>
+                                                <td class=" ">{$value.student_name} </td>
+                                                <td class=" "><a href="{$value.web_site}" target="_blank" ><font color="#FF0000">>>&nbsp;{$value.NAME}</font></a></td>
+                                                <td class=" "><a href="{$value.web_site}" target="_blank"><font color="#FF0000">{$value.research}</font></a></td>
+                                                <td class=" ">{eq name="value['a211']" value="1"}是{else/}不是{/eq}</td>
+                                                <td class="a-right a-right ">{eq name="value['a985']" value="1"}是{else/}不是{/eq}</td>
+                                                <td class=" last"><a href="#">{$value.hits}</a>
+                                                </td>
+                                            </tr>
+                                        {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="__graduate__/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="__graduate__/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="__graduate__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="__graduate__/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
+<script src="__graduate__/vendors/iCheck/icheck.min.js"></script>
+<!-- ECharts -->
+<script src="__graduate__/vendors/echarts/dist/echarts.js"></script>
+<script src="__graduate__/vendors/echarts/map/js/world.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="__graduate__/build/js/custom.js"></script>
+
+<div align="center">
+    <!--统计代码-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ba7054397ef399cc369ccab1835d2de0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275311623'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D1275311623%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>
